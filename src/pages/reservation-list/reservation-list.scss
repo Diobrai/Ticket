@@ -1,3 +1,33 @@
 page-reservation-list {
+  ion-content{
+    .company{
+      font-size: 25px!important;
+      text-align: center;
+      color: #4483f2;
+      font-family: "Times New Roman";
+      font-weight: bold;
+    }
+    .price{
+      //
+      span{
+        font-size: 20px!important;
+        color: #f53d3d!important;
+        ion-icon{
+          font-size: 100%!important;
+        }
+
+      }
+      .priceText{
+        color:black!important;
+      }
+    }
+    button{
+      button{
+        font-size: 20px!important;
+        font-family: "Rage Italic";
+      }
+    }
+
+  }
 
 }

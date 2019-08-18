@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {Ligne} from "../../Data/ligne";
 
 /**
@@ -21,7 +21,9 @@ export class ReservationListPage {
   arrive:string;
   ligne:Ligne;
   companyLines=[];
+  dateTransform:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
+              private modalCtrl: ModalController
               ) {
     this.company=this.navParams.get('company');
     this.date= this.navParams.get('date');
@@ -35,10 +37,19 @@ export class ReservationListPage {
     // date1=this.date.getDay()+'/'+this.date.getMonth()+'/'+this.date.getFullYear();
     let date1=this.date.split('-');
     let date2=date1[2]+'/'+date1[1]+'/'+date1[0];
-    console.log(date2)
-
-    this.companyLines=this.ligne.GetLigneByCompany(this.company,date2,this.depart);
+    this.dateTransform=date2;
+    console.log(date2);
+    this.companyLines=this.ligne.GetLigneByCompany(this.company,date2);
     console.log(this.companyLines)
   }
 
+  GoToReservationForm(line: any) {
+    let profileModal = this.modalCtrl.create('ReservationFormPage', { userId: 8675309 },
+      {
+        cssClass:'mymodal',
+        showBackdrop:true,
+        enableBackdropDismiss:true,
+    });
+    profileModal.present();
+  }
 }

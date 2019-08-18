@@ -63,9 +63,9 @@ export class Ligne {
          ]
        }
 
-       GetLigneByCompany(name,date, depart){
+       GetLigneByCompany(name,date){
          return this.allLigne.filter((val)=>
-         val.company==name && val.date==date && val.depart==depart)
+         val.company==name && val.date==date)
        }
 
 

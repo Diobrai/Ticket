@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import {FormsModule} from "@angular/forms";
 import { GeneralProvider } from '../providers/general/general';
+import {ReservationFormPage} from "../pages/reservation-form/reservation-form";
 
 
 @NgModule({
@@ -19,11 +20,13 @@ import { GeneralProvider } from '../providers/general/general';
     IonicModule.forRoot(MyApp,{
       backButtonText: 'Retour',
     }),
-    FormsModule
+    FormsModule,
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+
 
   ],
   providers: [

@@ -6,7 +6,7 @@
 
 <ion-content padding>
   <p class="company">Choissisez Votre compagnie de Voyage</p>
-  <div class="reservationForm">
+  <ion-card >
     <ion-list no-lines >
       <ion-item no-lines class="itemSize" >
         <ion-label color="danger" *ngIf="companies">Compagnie</ion-label>
@@ -30,10 +30,10 @@
           <ion-option *ngFor="let gare of garesCompagny" [value]="gare.name">{{gare.name}}</ion-option>
         </ion-select>
       </ion-item>
-      <button ion-button full  class="reservationBtn" icon-start (click)="GotToReservationList()">
+      <button ion-button round  class="reservationBtn" icon-start (click)="GotToReservationList()">
         <ion-icon name="jet"></ion-icon>
               Lignes Disponible
       </button>
     </ion-list>
-  </div>
+  </ion-card>
 </ion-content>
