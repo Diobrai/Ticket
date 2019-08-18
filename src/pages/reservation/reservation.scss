@@ -1,0 +1,30 @@
+page-reservation {
+  ion-content{
+    //background: #d7d8da!important;
+    .itemSize{
+
+      ion-label{
+        font-size: 20px!important;
+      }
+    }
+    .reservationForm{
+      margin-top: 20% !important;
+      background: #d7d8da!important;
+      ion-item{
+        background: #d7d8da!important;
+      }
+    }
+    .company{
+      margin-top: 25% !important;
+      font-size: 25px!important;
+      text-align: center;
+      color: #4483f2;
+      font-family: "Times New Roman";
+      font-weight: bold;
+    }
+    .reservationBtn{
+      border: none!important;
+    }
+  }
+
+}
