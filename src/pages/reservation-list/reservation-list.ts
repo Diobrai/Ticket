@@ -44,12 +44,14 @@ export class ReservationListPage {
   }
 
   GoToReservationForm(line: any) {
-    let profileModal = this.modalCtrl.create('ReservationFormPage', { userId: 8675309 },
+    let profileModal = this.modalCtrl.create('ReservationFormPage', {},
       {
         cssClass:'mymodal',
-        showBackdrop:true,
-        enableBackdropDismiss:true,
-    });
+      });
+    profileModal.onDidDismiss(data=>{
+      console.log(data)
+    })
     profileModal.present();
+
   }
 }

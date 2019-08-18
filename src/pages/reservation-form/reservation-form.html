@@ -11,5 +11,16 @@
 </ion-header>
 
 <ion-content >
+  <ion-item>
+    <ion-label floating="">Nom et prenom</ion-label>
+    <ion-input type="text" [(ngModel)]="name" ></ion-input>
+
+  </ion-item>
+  <ion-item no-lines>
+    <button class="confirmBtn" ion-button color="danger"  round (click)="confirm()">
+      Confirmer
+    </button>
+  </ion-item>
+
 
 </ion-content>

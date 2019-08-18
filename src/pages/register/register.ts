@@ -23,11 +23,6 @@ export class RegisterPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
-  pres(){
-    let profileModal = this.modalCtrl.create('ReservationFormPage', {},
-      {
-        cssClass:'mymodal',
-      });
-    profileModal.present();
-  }
+
+
 }
