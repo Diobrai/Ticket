@@ -7,19 +7,29 @@
 
 <ion-content>
   <p class="company">Disponible le {{dateTransform}}</p>
-  <ion-list no-lines>
-      <button ion-item *ngFor="let line of companyLines" detail-push >
-        <ion-label>
-          <h2 item-start>{{line.depart}}  ------>   {{line.arrive}}</h2>
-          <p class="price">
-            <span icon-start> <ion-icon name="time" color="graycolor"></ion-icon>{{line.heure}}</span>
-            <span  item-end class="priceText" ><ion-icon name="cash"color="primary"></ion-icon>{{line.prix}}F</span>
-          </p>
-        </ion-label>
-        <button ion-button outline item-end (click)="GoToReservationForm(line)" icon-start>
-          <ion-icon name="reorder"></ion-icon>
-          reserver</button>
-      </button>
-  </ion-list>
+
+      <ion-card *ngFor="let line of companyLines" detail-push >
+        <ion-card-header>
+          <ion-item>
+            <h2 item-start>{{line.depart}}  ------>   {{line.arrive}}</h2>
+            <span icon-start item-end> <ion-icon name="time" color="graycolor" small></ion-icon>{{line.heure}}</span>
+          </ion-item>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-item>
+            <p class="price">
+              <span  item-end class="priceText" ><ion-icon name="cash"color="primary"></ion-icon>{{line.prix}}F</span>
+            </p>
+            <button ion-button outline item-end (click)="GoToReservationForm(line)" icon-start>
+              <ion-icon name="reorder"></ion-icon>
+              reserver</button>
+          </ion-item>
+
+
+        </ion-card-content>
+      </ion-card>
+
+
 
 </ion-content>

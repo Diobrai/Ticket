@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
 import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {Ligne} from "../../Data/ligne";
-
-/**
- * Generated class for the ReservationListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {GeneralProvider} from "../../providers/general/general";
+import {Reservations} from "../../Data/reservations";
+import {ReservationsList} from "../../Data/reservationsList";
 
 @IonicPage()
 @Component({
@@ -22,8 +18,11 @@ export class ReservationListPage {
   ligne:Ligne;
   companyLines=[];
   dateTransform:string;
+  namePeaople:any;
+  reservations:Reservations[]=[];
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private modalCtrl: ModalController
+              private modalCtrl: ModalController,
+              private generalProvider: GeneralProvider
               ) {
     this.company=this.navParams.get('company');
     this.date= this.navParams.get('date');
@@ -49,8 +48,16 @@ export class ReservationListPage {
         cssClass:'mymodal',
       });
     profileModal.onDidDismiss(data=>{
-      console.log(data)
-    })
+      if(data){
+        this.namePeaople=data.name;
+        let reservation=new Reservations(line,this.namePeaople,2,this.company,this.dateTransform);
+        let lists=new ReservationsList();
+        lists.AddReservation(reservation);
+        localStorage.setItem('billet',reservation.line.company+'-'+reservation.place+'-'+reservation.line.date);
+        this.generalProvider.presentAlert('Success',
+          'place'+reservation.place+'&compagnie:'+this.company)
+      }
+    });
     profileModal.present();
 
   }

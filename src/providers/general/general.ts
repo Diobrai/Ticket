@@ -27,10 +27,10 @@ export class GeneralProvider {
 
 
 
-  async presentAlert(title) {
+  async presentAlert(title,message?) {
     const alert = await this.alertCtrl.create({
       title: title,
-      subTitle: '10% of battery remaining',
+      message:'votre billet:'+message,
       buttons: ['Ok'],
       enableBackdropDismiss:true
     });

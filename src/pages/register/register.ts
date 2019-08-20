@@ -17,7 +17,7 @@ import {ReservationFormPage} from "../reservation-form/reservation-form";
 export class RegisterPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private modalCtrl: ModalController) {
+              ) {
   }
 
   ionViewDidLoad() {

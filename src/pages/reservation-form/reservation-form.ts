@@ -24,10 +24,15 @@ export class ReservationFormPage {
     console.log('ionViewDidLoad ReservationFormPage');
   }
   confirm() {
-    let data = { name: this.name };
-    this.viewCtrl.dismiss(data).then(val=>{
-      console.log(val)
-    });
+    if(this.name){
+      let data = { name: this.name };
+      this.viewCtrl.dismiss(data).then(val=>{
+        console.log(val)
+      });
+    }else {
+      return;
+    }
+
   }
 
 }

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {GeneralProvider} from "../../providers/general/general";
 import {Gare} from "../../Data/Gare";
 import {Company} from "../../Data/company";
+import {ReservationsList} from "../../Data/reservationsList";
 
 /**
  * Generated class for the ReservationPage page.
@@ -65,6 +66,23 @@ export class ReservationPage {
     }
 
 
+
+
+  }
+
+  GetBillet() {
+   let data=localStorage.getItem('billet');
+   if(data){
+     let dataT=data.split('-');
+     console.log(dataT);
+     const reservationList=new ReservationsList();
+     let reservation=reservationList.GetReservation(dataT[0],dataT[1],dataT[2]);
+     this.navCtrl.push('BilletsPage',{reservation:reservation},{},(data)=>{
+       console.log(data)
+     })
+   }else {
+        return;
+   }
 
 
   }
