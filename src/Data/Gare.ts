@@ -2,7 +2,6 @@ export class Gare {
   name:string;
   company:string;
   constructor(){}
-
   AllGare(): Array<Object>{
     return [
       {

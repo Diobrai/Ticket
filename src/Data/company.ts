@@ -1,7 +1,6 @@
 export class Company {
-  constructor(){
-
-  }
+  name:string;
+  constructor(){}
   AllCompany(): Array<object>{
     return [
       {

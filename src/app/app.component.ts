@@ -8,10 +8,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 })
 export class MyApp {
   rootPage:string= 'HomePage';
-  config: {
-    backButtonText: 'Retour',
-
-  }
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

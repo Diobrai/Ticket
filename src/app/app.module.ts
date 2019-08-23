@@ -10,9 +10,11 @@ import { GeneralProvider } from '../providers/general/general';
 
 
 
+
 @NgModule({
   declarations: [
     MyApp,
+
 
   ],
   imports: [
@@ -26,6 +28,7 @@ import { GeneralProvider } from '../providers/general/general';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+
 
 
   ],
