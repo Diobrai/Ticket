@@ -21,6 +21,7 @@ import { GeneralProvider } from '../providers/general/general';
     BrowserModule,
     IonicModule.forRoot(MyApp,{
       backButtonText: 'Retour',
+
     }),
     FormsModule,
 
@@ -28,9 +29,6 @@ import { GeneralProvider } from '../providers/general/general';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-
-
-
   ],
   providers: [
     StatusBar,

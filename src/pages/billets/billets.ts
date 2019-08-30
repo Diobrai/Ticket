@@ -14,12 +14,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'billets.html',
 })
 export class BilletsPage {
-
+  billet:any=[];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad BilletsPage');
+    let bill=localStorage.getItem('billet');
+    if(bill){
+      this.billet=bill.split('-');
+    }
   }
 
+  Modifier() {
+    this.navCtrl.pop();
+  }
+
+  Supprimer() {
+    localStorage.removeItem('billet');
+    this.billet=[]
+
+  }
 }

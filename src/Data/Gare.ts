@@ -78,6 +78,10 @@ export class Gare {
         name:'Toubouctou',
         company:'Alou Transport'
       },
+      {
+        name:'Koutiala',
+        company:'Alou Transport'
+      }
 
 
     ]

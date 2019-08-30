@@ -1,6 +1,11 @@
 page-reservation {
+  ion-header{
+    ion-navbar{
+      background: #7e3e80 !important;
+    }
+  }
   ion-content{
-    //background: #d7d8da!important;
+    background: #f4f4f4!important;
     .itemSize{
 
       ion-label{
@@ -28,5 +33,7 @@ page-reservation {
       width: 60% !important;
     }
   }
-
+  ion-footer{
+    background: #7e3e80 !important;
+  }
 }

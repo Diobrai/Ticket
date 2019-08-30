@@ -1,6 +1,11 @@
 page-reservation-list {
+  ion-header{
+    ion-navbar{
+      background:#7e3e80 !important; ;
+    }
+  }
   ion-content{
-    background: #c1c0c9 !important;
+    background: #f1f1f9 !important;
     .company{
       font-size: 25px!important;
       text-align: center;
@@ -8,7 +13,14 @@ page-reservation-list {
       font-family: "Times New Roman";
       font-weight: bold;
     }
-
+    .no-ligne{
+      margin-top: 50%;;
+      text-align: center!important;
+      color: red;
+      p{
+        color: #32db64;
+      }
+    }
     .price{
       //
       span{

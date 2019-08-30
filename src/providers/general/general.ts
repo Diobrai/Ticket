@@ -18,7 +18,7 @@ export class GeneralProvider {
 
    presentLoading() {
     let loading = this.loadingController.create({
-      content: 'Please wait...'
+      content: 'Attendez svp...'
     });
     return loading;
   }
@@ -28,6 +28,7 @@ export class GeneralProvider {
 
 
   async presentAlert(title,message?) {
+
     const alert = await this.alertCtrl.create({
       title: title,
       message:'votre billet:'+message,

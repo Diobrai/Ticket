@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {GeneralProvider} from "../../providers/general/general";
 import {Gare} from "../../Data/Gare";
 import {Company} from "../../Data/company";
@@ -27,8 +27,11 @@ export class ReservationPage {
   date: any;
   arrive:any;
   depart:any;
+  garesCompagnydetpart: any;
+  garesCompagnyarrive: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private generalProvider: GeneralProvider,
+              private alterCtrl:AlertController
 
               ) {
     this.gare=new Gare();
@@ -43,7 +46,12 @@ export class ReservationPage {
   }
 
   GetGare() {
-    this.garesCompagny=this.gares.filter(value =>value.company==this.company);
+    //const ascending: any= values.sort((a,b) =>  (a > b ? 1 : -1));
+    //const descending: any= values.sort((a,b) => (a > b ? -1 : 1))
+    this.garesCompagny=this.gares.filter(value =>value.company==this.company).
+    sort((a,b) => (a.name > b.name ? 1 : -1));
+    this.garesCompagnyarrive=this.garesCompagny;
+    this.garesCompagnydetpart=this.garesCompagny;
     //this.generalProvider.presentAlert(this.company)
   }
 
@@ -62,7 +70,10 @@ export class ReservationPage {
         this.navCtrl.push('ReservationListPage',params);
       },3000)
     }else {
-      this.generalProvider.presentAlert('Tous les champs sont obligatoire')
+      this.alterCtrl.create({
+        title:'Info',
+        message:'Tous les champs sont obligatoire!!'
+      }).present()
     }
 
 
@@ -72,6 +83,7 @@ export class ReservationPage {
 
   GetBillet() {
    let data=localStorage.getItem('billet');
+   console.log(data)
    if(data){
      let dataT=data.split('-');
      console.log(dataT);
@@ -85,5 +97,15 @@ export class ReservationPage {
    }
 
 
+  }
+
+  GetGareWithout(gare: any,depOrarr:string) {
+    if(depOrarr=='depart'){
+      this.garesCompagnyarrive=this.garesCompagny;
+     this.garesCompagnyarrive= this.garesCompagnyarrive.filter(value =>value.name!=gare)
+    }else{
+      this.garesCompagnydetpart= this.garesCompagnydetpart.filter(value =>value.name!=gare);
+      this.garesCompagnydetpart=this.garesCompagny;
+    }
   }
 }

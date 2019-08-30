@@ -1,11 +1,11 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>reservation</ion-title>
+<ion-header no-border>
+  <ion-navbar  color="purple-color">
+    <ion-title>Reservation</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <p class="company">Choissisez Votre compagnie de Voyage</p>
+<ion-content >
+  <p class="company">Recherche</p>
   <ion-card >
     <ion-list no-lines >
       <ion-item no-lines class="itemSize" >
@@ -20,24 +20,28 @@
       </ion-item >
       <ion-item *ngIf="garesCompagny" class="itemSize">
         <ion-label color="dark">Gare depart</ion-label>
-        <ion-select [(ngModel)]="depart">
-          <ion-option *ngFor="let gare of garesCompagny" [value]="gare.name">{{gare.name}}</ion-option>
+        <ion-select [(ngModel)]="depart" (ionChange)="GetGareWithout(depart,'depart')" >
+          <ion-option *ngFor="let gare of garesCompagnydetpart" [value]="gare.name">{{gare.name}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item *ngIf="garesCompagny" class="itemSize">
         <ion-label color="dark">Gare Arrivé</ion-label>
-        <ion-select [(ngModel)]="arrive">
-          <ion-option *ngFor="let gare of garesCompagny" [value]="gare.name">{{gare.name}}</ion-option>
+        <ion-select [(ngModel)]="arrive" (ionChange)="GetGareWithout(arrive,'arrive')">
+          <ion-option *ngFor="let gare of garesCompagnyarrive" [value]="gare.name">{{gare.name}}</ion-option>
         </ion-select>
       </ion-item>
-      <button ion-button   class="reservationBtn" icon-start (click)="GotToReservationList()">
+      <button ion-button   class="reservationBtn"  icon-start (click)="GotToReservationList()" text-capitalize>
         <ion-icon name="jet"></ion-icon>
               Lignes Disponible
       </button>
     </ion-list>
   </ion-card>
-  <button ion-button clear    icon-start (click)="GetBillet()">
-    <ion-icon ios="ios-folder" md="md-folder"></ion-icon>
-    vos billets reserver
-  </button>
 </ion-content>
+<ion-footer no-border>
+  <div style="text-align: center!important;">
+    <button  ion-button clear    icon-start (click)="GetBillet()" text-capitalize>
+      <ion-icon ios="ios-folder" md="md-folder"></ion-icon>
+      Mes billets
+    </button>
+  </div>
+</ion-footer>

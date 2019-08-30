@@ -37,9 +37,10 @@ export class ReservationListPage {
     let date1=this.date.split('-');
     let date2=date1[2]+'/'+date1[1]+'/'+date1[0];
     this.dateTransform=date2;
-    console.log(date2);
-    this.companyLines=this.ligne.GetLigneByCompany(this.company,date2);
-    console.log(this.companyLines)
+    //console.log(date2);
+    this.companyLines=this.ligne.GetLigneByCompany(this.company,date2,this.depart,this.arrive)
+      .sort((a,b)=> ( a.heure > b.heure ? 1 : -1));
+
   }
 
   GoToReservationForm(line: any) {
@@ -53,9 +54,9 @@ export class ReservationListPage {
         let reservation=new Reservations(line,this.namePeaople,2,this.company,this.dateTransform);
         let lists=new ReservationsList();
         lists.AddReservation(reservation);
-        localStorage.setItem('billet',reservation.line.company+'-'+reservation.place+'-'+reservation.line.date);
+        localStorage.setItem('billet',reservation.line.company+'-'+reservation.place+'-'+reservation.line.date+'-'+line.heure+'-'+line.depart+'-'+this.namePeaople);
         this.generalProvider.presentAlert('Success',
-          'place'+reservation.place+'&compagnie:'+this.company)
+          'place '+reservation.place+' à '+line.heure +'&compagnie:'+this.company );
       }
     });
     profileModal.present();

@@ -1,6 +1,6 @@
 page-home {
   ion-content{
-      background: #4aa1f3!important;
+      background: #7e3e80 !important;
     .center{
       text-align: center!important;
       margin-top: 50% !important;
@@ -16,8 +16,15 @@ page-home {
       color:#4aa1f3!important;
 
     }
-  }
 
+  }
+  ion-footer{
+    background: #7e3e80 !important;
+    .footer{
+      text-align: center!important;
+      font-size: larger;
+    }
+  }
 }
 
 

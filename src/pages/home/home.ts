@@ -18,7 +18,7 @@ export class HomePage {
 
 
   GoToReservePage() {
-    this.navCtrl.push('ReservationPage');
+    this.navCtrl.setRoot('ReservationPage').then(data=>{});
   }
 
 }

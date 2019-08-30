@@ -1,13 +1,12 @@
 
 <ion-header>
-  <ion-navbar *ngIf="company">
+  <ion-navbar *ngIf="company" color="purple-color">
     <ion-title>{{company}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <p class="company">Disponible le {{dateTransform}}</p>
-
       <ion-card *ngFor="let line of companyLines" detail-push >
         <ion-card-header>
           <ion-item>
@@ -15,21 +14,18 @@
             <span icon-start item-end> <ion-icon name="time" color="graycolor" small></ion-icon>{{line.heure}}</span>
           </ion-item>
         </ion-card-header>
-
         <ion-card-content>
-          <ion-item>
+          <ion-item icon-start>
             <p class="price">
-              <span  item-end class="priceText" ><ion-icon name="cash"color="primary"></ion-icon>{{line.prix}}F</span>
+              <span  item-end class="priceText" ><ion-icon name="cash" color="primary"></ion-icon>{{line.prix}}F</span>
             </p>
-            <button ion-button outline item-end (click)="GoToReservationForm(line)" icon-start>
+            <button ion-button outline item-end (click)="GoToReservationForm(line)" icon-start text-capitalize>
               <ion-icon name="reorder"></ion-icon>
               reserver</button>
           </ion-item>
-
-
         </ion-card-content>
       </ion-card>
-
-
-
+  <h5 class="no-ligne" *ngIf="companyLines.length<=0">Pas de voyage à cette date
+      <p>Merci de choisir une autre Date</p>
+  </h5>
 </ion-content>
